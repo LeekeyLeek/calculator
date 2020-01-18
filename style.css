@@ -9,6 +9,8 @@
 .display {
     height: 200px;
     width: 100%;
+    font-size: 5em;
+    text-align: center;
 }
 
 .optionContainer {
