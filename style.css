@@ -3,5 +3,33 @@
     height: 800px;
     width: 800px;
     border: solid;
-    border-width: 5px 5px 5px 5px;
+    border-width: solid;
+}
+
+.display {
+    height: 200px;
+    width: 100%;
+}
+
+.optionContainer {
+    display: grid;
+    height: 100px;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.numberContainer {
+    display: grid;
+    height: 500px;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.numbers {
+    
+}
+
+.operations {
+
 }
