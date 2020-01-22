@@ -10,28 +10,28 @@ function add(x, y) {
     x = parseInt(storedVariables.Number1)
     y = parseInt(storedVariables.Number2)
     console.log(x + y)
-    return x + y;
+    return liveDisplay.innerHTML = x + y;
 };
 
 function subtract(x, y) {
     x = parseInt(storedVariables.Number1)
     y = parseInt(storedVariables.Number2)
     console.log(x - y)
-    return x - y;
+    return liveDisplay.innerHTML = x - y;
 };
 
 function multiply(x, y) {
     x = parseInt(storedVariables.Number1)
     y = parseInt(storedVariables.Number2)
     console.log(x * y)
-    return x * y;
+    return liveDisplay.innerHTML = x * y;
 };
 
 function divide(x, y) {
     x = parseInt(storedVariables.Number1)
     y = parseInt(storedVariables.Number2)
     console.log(x / y)
-    return x / y;
+    return liveDisplay.innerHTML = x / y;
 };
 
 function operate(choice) {
@@ -157,9 +157,14 @@ function receiveInput(buttonClick) {
             return liveDisplay.innerHTML += '9'
 
         case '.':
+            console.log(typeof(choice))
+
+            if (choice == false) {
+                storedVariables.Number1 += '.'
+            } else {storedVariables.Number2 += '.'}
+
             return liveDisplay.innerHTML += '.'
 
-        
         // Operators     
         case '+':
             choice = '+'
@@ -180,6 +185,17 @@ function receiveInput(buttonClick) {
         case '=':
             operate(choice)
             return
+
+        // Options
+        case 'clear':
+            liveDisplay.innerHTML = ''
+            storedVariables.Number1 = ''
+            storedVariables.Number2 = ''
+            return choice = false
+        case 'backspace':
+            return
+        case 'neSwitch':
+            return
     };
 };
 
@@ -195,6 +211,14 @@ for (let i = 0; i < numberButtons.length; i++) {
 let operatorButtons = Array.from(document.getElementsByClassName('operations'))
 for (let i = 0; i < operatorButtons.length; i++) {
     operatorButtons[i].addEventListener('click', function(e) {
+        let buttonClick = this.id
+        receiveInput(buttonClick)
+    });
+};
+
+let optionButtons = Array.from(document.getElementsByClassName('options'))
+for (let i = 0; i < optionButtons.length; i++) {
+    optionButtons[i].addEventListener('click', function(e) {
         let buttonClick = this.id
         receiveInput(buttonClick)
     });
